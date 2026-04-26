@@ -1,0 +1,33 @@
+## Blinkit Hot Wheels Tracker — Python Dependencies
+## Install with: pip install -r requirements.txt
+
+# HTTP client — async, connection pooling, same TCP fingerprint per session
+httpx>=0.27.0
+curl-cffi>=0.7.0
+
+# Headless browser — persistent context for session management
+playwright>=1.44.0
+
+# Fuzzy matching — C extension, ~10x faster than fuzzywuzzy
+rapidfuzz>=3.9.0
+
+# Telegram alerts — async bot API
+python-telegram-bot>=21.0
+
+# Config parsing
+pyyaml>=6.0.1
+
+# Sound alerts — cross-platform
+playsound3>=1.0.0
+
+# Async file I/O (for seen_products.json, session.json)
+aiofiles>=23.2.1
+
+# Rich terminal output (status, tables, progress)
+rich>=13.7.0
+
+# Async scheduling
+apscheduler>=3.10.0
+
+# Utility
+python-dateutil>=2.9.0

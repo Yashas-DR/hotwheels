@@ -1,0 +1,239 @@
+## ─────────────────────────────────────────────────────────────
+## Blinkit Hot Wheels Tracker — Configuration
+## Edit this file to customize your tracking setup.
+## ─────────────────────────────────────────────────────────────
+
+# ── Telegram ───────────────────────────────────────────────────
+# Get a bot token from @BotFather on Telegram.
+# Get your chat ID from @userinfobot or @getidsbot.
+telegram:
+  bot_token: "8638938359:AAFjH1QDYv4Sxm2_X7G4m3jdsqsZu9aNqYo"
+  chat_id: "991748023"
+  enabled: true
+
+# ── Search ─────────────────────────────────────────────────────
+# Blinkit search queries to run each cycle.
+# Keep this small — every extra query adds requests.
+search:
+  queries:
+    - "hot wheels"
+  max_pages: 4            # Max pagination pages per query (12 products/page)
+
+# ── Watchlist ──────────────────────────────────────────────────
+# Model names to fuzzy-match against Blinkit product names.
+# These are YOUR target models — not exact Blinkit names.
+# Example: "Bone Shaker" will match "Hot Wheels Bone Shaker Die Cast Car"
+watchlist:
+  # ── Main batch ─────────────────────────────────────────────
+  - "maserati shamal"
+  - "jeep gladiator"
+  - "bentley continental gt3"
+  - "mclaren w1"
+  - "ferrari 365 gtb4 competizione"
+  - "ford rs200"
+  - "audi 90 quattro"
+  - "porsche 911 carrera t"
+  - "ferrari f40 competizione"
+  - "ford mustang shelby gt500"
+  - "lamborghini huracan sterrato"
+  - "chevy impala"
+  # ── Case assortment ────────────────────────────────────────
+  - "bugatti bolide"
+  - "ford mustang gtd"
+  - "dodge viper rt"
+  - "mclaren formula 1 team"
+  - "optimus prime"
+  - "ferrari sf90 stradale"
+  # ── New additions ─────────────────────────────────────────
+  - "ferrari 12cilinderi"
+  - "lb-works lamborghini huracan coupe"
+  - "austin mini cooper s"
+  # ── Apr 19 additions ──────────────────────────────────────
+  - "standard kart"
+  - "bmw 635 csi"
+  - "dino 206 gt"
+  - "ford mustang mach-e 1400"
+  - "toyota gr supra"
+  - "twin tags"
+  - "raijin express"
+  - "total disposal"
+  - "audi rs6 avant"
+  - "mercedes-benz cla"
+  - "kick sauber f1 team"
+  - "porsche 928s"
+  - "la liebre"
+  - "lotus sport elise"
+  # Add more model names below:
+  - "porsche 911 carrera rs 3.8"
+  - "McLaren Formula 1 Team 4"
+  - "McLaren Formula 1 Team"
+  - "2025 McLaren Formula 1 Team 81"
+  - "MoneyGram Haas F1 Team 31"
+  - "2025 Mercedes-AMG Petronas F1 Team"
+  - "Atlassian Williams JKD85"
+  - "BWT Alpine Formula One Team"
+  - "Oracle Red Bull Racing"
+  - "27 Kick Sauber- F1"
+  - "5 Kick JKD 89 Sauber- F1"
+
+
+# ── Locations ──────────────────────────────────────────────────
+# Add your delivery locations (lat/lng).
+# Blinkit maps these to the nearest dark store.
+# Find coords: right-click your address on Google Maps → "What's here?"
+# Keep <= 5 locations for safe operation.
+locations:
+  - name: "Novel Office"
+    lat: 12.956695
+    lng: 77.7000965
+  - name: "Home"
+    lat: 12.9434933
+    lng: 77.7070333
+  - name: "Friend House"
+    lat: 13.000729
+    lng: 77.668061
+
+# ── Timing ─────────────────────────────────────────────────────
+# All intervals use random windows to avoid detectable patterns.
+timing:
+  scan_interval_min: 10           # Seconds between full scan cycles (min)
+  scan_interval_max: 20           # Seconds between full scan cycles (max)
+  location_gap_min: 5             # Seconds between scanning each location
+  location_gap_max: 12
+  session_refresh_interval_min: 30  # Minutes between session refresh (min)
+  session_refresh_interval_max: 60  # Minutes between session refresh (max)
+
+# ── Rate Limits ─────────────────────────────────────────────────
+# Hard ceiling — NEVER exceeded regardless of other settings.
+# Acts as a failsafe against logic bugs causing tight loops.
+limits:
+  max_requests_per_minute: 20
+
+# ── Matching ───────────────────────────────────────────────────
+matching:
+  fuzzy_threshold: 65       # 0–100. Lower = more matches. Raise if false positives.
+  dedup_ttl_minutes: 120    # How long before re-alerting for the same product.
+                            # Lower (e.g. 30) for fast restock tracking.
+
+# ── Alerts ─────────────────────────────────────────────────────
+alerts:
+  sound_enabled: true       # Play audio alert on match
+  sound_file: "assets/alert.wav"   # Path relative to tracker/
+
+# ── Logging ────────────────────────────────────────────────────
+logging:
+  level: "INFO"             # DEBUG | INFO | WARNING | ERROR
+  log_to_file: true
+  log_file: "logs/tracker.log"
+  max_log_size_mb: 10
+
+# ── BigBasket ──────────────────────────────────────────────────
+# Set enabled: true after running: python tracker/tools/bigbasket_extractor.py
+# If BigBasket fails for any reason, Blinkit + Instamart scanning continues.
+bigbasket:
+  enabled: true
+  bucket_id: 92         # Location/area bucket — from DevTools URL param
+  max_pages: 4
+
+  # ── Locations (one session file per address) ───────────────────
+  # Each entry = one BigBasket delivery address captured by bigbasket_extractor.py
+  # To capture a new location: python tracker/tools/bigbasket_extractor.py --session-file bigbasket_tumakuru_session.json
+  locations:
+    - name: "Home (Bangalore)"
+      session_file: "bigbasket_session.json"
+    - name: "Chik (Tumakuru)"
+      session_file: "bigbasket_tumakuru_session.json"
+    - name: "Friend House (Bangalore)"
+      session_file: "bigbasket_friend_session.json"
+    - name: "Novel Office (Marathahalli)"
+      session_file: "bigbasket_office_session.json"
+
+  # ── BigBasket-only watchlist extras ───────────────────────────
+  # Tracked ONLY on BigBasket (added on top of main watchlist).
+  additional_watchlist: []
+
+# ── FirstCry ───────────────────────────────────────────────────
+# Catalog-driven e-commerce. No storeId or coordinates needed —
+# location is a pincode passed per request.
+# Set enabled: true after running: python tracker/tools/firstcry_extractor.py
+# A single session file handles all pincodes.
+firstcry:
+  enabled: true
+  master_brand: 113     # Hot Wheels brand ID — do not change
+  max_pages: 5          # 20 products/page → up to 100 results
+  session_file: "firstcry_session.json"
+
+  # ── Pincodes to scan ──────────────────────────────────────────
+  # Each entry is a name + pincode. All share the same session file.
+  locations:
+    - name: "Home (Bengaluru)"
+      pincode: "560037"
+    - name: "Friend (Bengaluru)"
+      pincode: "560016"
+    - name: "Hometown (Tumakuru)"
+      pincode: "572102"
+
+  # ── FirstCry-only watchlist extras ────────────────────────────
+  # Tracked ONLY on FirstCry (added on top of main watchlist).
+  additional_watchlist: []
+
+# ── Instamart (Swiggy) ─────────────────────────────────────────
+# Set enabled: true after running: python tracker/tools/instamart_extractor.py
+# If Instamart fails for any reason, Blinkit scanning continues unaffected.
+instamart:
+  enabled: true             # ✅ enabled — storeIds confirmed from browser devtools
+  layout_id: 6021
+  client_id: "INSTAMART-APP"
+
+  locations:
+    - name: "Novel Office"
+      lat: 12.956695
+      lng: 77.7000965
+      store_id: 1395425
+      secondary_store_id: "1400609"
+      fallback_store_ids:
+        - {store_id: 1381021, secondary_store_id: "1400609"}
+
+    - name: "Home"
+      lat: 12.9434933
+      lng: 77.7070333
+      store_id: 1381021
+      secondary_store_id: "1400609"
+      fallback_store_ids:
+        - {store_id: 1384139, secondary_store_id: "1400930"}
+
+    - name: "Friend House"
+      lat: 13.000729
+      lng: 77.668061
+      store_id: 1404786
+      secondary_store_id: "1400930"
+      fallback_store_ids:
+        - {store_id: 1384139, secondary_store_id: "1400930"}
+
+  # ── Instamart-only watchlist extras ────────────────────────────
+  # Tracked ONLY on Instamart (added on top of main watchlist).
+  additional_watchlist:
+    - "porsche 911 turbo cabriolet"
+    - "audi rs 6 avant"
+    - "ferrari f40 competizione"
+    - "visa cash app racing bulls formula 1 team"
+
+
+# ── Zepto ────────────────────────────────────────────────────────────────────
+# Set enabled: true after running: python tracker/tools/zepto_extractor.py
+# Store IDs are pre-seeded from HAR — no manual lookup needed.
+# The extractor captures: accessToken, refreshToken, x-xsrf-token, session_id.
+zepto:
+  enabled: true            # ← set true after running zepto_extractor.py
+  max_pages: 4              # pageNumber 0-3 covers full Hot Wheels catalog
+  session_file: "zepto_session.json"
+
+  # Store IDs are stored IN the session file (captured by extractor from HAR).
+  # These location names must match keys in zepto_session.json.
+  locations:
+    - name: "Novel Office (Marathahalli)"   # store_id: 6e2378a8-...
+    - name: "Home (Whitefield)"             # store_id: 318b567c-...
+    - name: "Friend"                        # store_id: 70587079-...
+
+  # Zepto-only extras (on top of main watchlist)
+  additional_watchlist: []

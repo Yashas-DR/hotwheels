@@ -1,0 +1,36 @@
+{
+  "cookies": {
+    "gr_1_deviceId": "8821088f-3ef1-45a0-8cd1-3adf4651cd96",
+    "_gcl_au": "1.1.62701940.1775773191",
+    "_fbp": "fb.1.1775773191535.36763034982508033",
+    "gr_1_lat": "12.9437737",
+    "gr_1_lon": "77.7068494",
+    "gr_1_locality": "3",
+    "gr_1_landmark": "undefined",
+    "gr_1_accessToken": "v2%3A%3Ad2e47bfb-14b2-4f86-a1cd-9632c4cdc3c5",
+    "_ga_JSMJG966C7": "GS2.1.s1776794262$o10$g1$t1776794265$j57$l0$h0",
+    "_ga": "GA1.2.609797859.1775773191",
+    "_ga_DDJ0134H6Z": "GS2.2.s1776794262$o10$g1$t1776794266$j56$l0$h0",
+    "__cf_bm": "F3dCjf1TaFimwm4kjtspBhLcVroAhkR3aLkivWRWU.o-1777186069.1865928-1.0.1.1-KYZHS3MwnDEeS8TjcL1yQSI0MdGCD5uZRdJ1jeK5WAbUpnXaiE8NS5_VtxcWTll_Gu_6b7MsHIKSwIKEaVn5iOqVaSABI.cqQLkzY_Y3npU81lJoUKVGt70h3Ah0mfX4"
+  },
+  "api_headers": {
+    "sec-ch-ua-platform": "\"Windows\"",
+    "lat": "12.9437737",
+    "session_uuid": "dd8a9e7e-6455-4a0b-8ae6-d3b3d3fa49b9",
+    "web_app_version": "1008010016",
+    "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "app_client": "consumer_web",
+    "device_id": "3e8f844128b3387a",
+    "auth_key": "c761ec3633c22afad934fb17a66385c1c06c5472b4898b866b7306186d0bb477",
+    "content-type": "application/json",
+    "lon": "77.7068494",
+    "referer": "https://blinkit.com/s/?q=hot+wheels",
+    "app_version": "1010101010",
+    "rn_bundle_version": "1009003012",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+    "access_token": "v2::d2e47bfb-14b2-4f86-a1cd-9632c4cdc3c5"
+  },
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+  "saved_at": 1777186073.5383537
+}
