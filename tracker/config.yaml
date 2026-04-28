@@ -36,7 +36,6 @@ watchlist:
   - "ferrari f40 competizione"
   - "ford mustang shelby gt500"
   - "lamborghini huracan sterrato"
-  - "chevy impala"
   # ── Case assortment ────────────────────────────────────────
   - "bugatti bolide"
   - "ford mustang gtd"
@@ -75,6 +74,7 @@ watchlist:
   - "Oracle Red Bull Racing"
   - "27 Kick Sauber- F1"
   - "5 Kick JKD 89 Sauber- F1"
+  
 
 
 # ── Locations ──────────────────────────────────────────────────
@@ -112,7 +112,7 @@ limits:
 # ── Matching ───────────────────────────────────────────────────
 matching:
   fuzzy_threshold: 65       # 0–100. Lower = more matches. Raise if false positives.
-  dedup_ttl_minutes: 120    # How long before re-alerting for the same product.
+  dedup_ttl_minutes: 0    # How long before re-alerting for the same product.
                             # Lower (e.g. 30) for fast restock tracking.
 
 # ── Alerts ─────────────────────────────────────────────────────
