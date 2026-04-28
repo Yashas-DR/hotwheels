@@ -107,6 +107,7 @@ Install the required network and automation frameworks:
 ```bash
 pip install curl-cffi playwright rich thefuzz pyyaml
 playwright install chromium
+pip install pygame --quiet
 ```
 
 ### 3. Configuration (`config.yaml`)

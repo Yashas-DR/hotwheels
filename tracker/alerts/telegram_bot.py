@@ -139,6 +139,39 @@ class TelegramAlerter:
         )
         return await self._send(text, parse_mode="MarkdownV2")
 
+    async def send_internet_down_alert(self, err_detail: str = "") -> bool:
+        """
+        Alert that the internet connection has been lost.
+        Sent ONCE when connectivity drops — not on every failed request.
+        """
+        timestamp = datetime.now().strftime("%I:%M %p")
+        # Extract the short curl error code line for readability
+        detail_short = err_detail.split("\n")[0][:120] if err_detail else ""
+        detail_line = f"\n`{self._escape(detail_short)}`" if detail_short else ""
+        text = (
+            f"\U0001f4f5 *Internet Connection Lost\\!*{detail_line}\n\n"
+            f"The tracker is running but cannot reach any platform\\.\n"
+            f"Scans will resume automatically when connectivity returns\\.\n\n"
+            f"\u23f0 {timestamp}"
+        )
+        return await self._send(text, parse_mode="MarkdownV2")
+
+    async def send_internet_up_alert(self, down_seconds: int = 0) -> bool:
+        """
+        Alert that the internet connection has been restored.
+        Sent ONCE when connectivity recovers.
+        """
+        timestamp = datetime.now().strftime("%I:%M %p")
+        mins, secs = divmod(down_seconds, 60)
+        duration = f"{mins}m {secs}s" if mins else f"{secs}s"
+        text = (
+            f"\u2705 *Internet Connection Restored*\n\n"
+            f"Was down for approximately {self._escape(duration)}\\.\n"
+            f"Tracker is scanning normally again\\.\n\n"
+            f"\u23f0 {timestamp}"
+        )
+        return await self._send(text, parse_mode="MarkdownV2")
+
     async def send_status(self, message: str) -> bool:
         """Send a plain status message."""
         return await self._send(self._escape(message), parse_mode="MarkdownV2")

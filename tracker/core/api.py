@@ -38,6 +38,7 @@ from typing import Optional
 
 from core.rate_limiter import RateLimiter
 from core.locations import Location
+from core.connectivity import connectivity
 
 logger = logging.getLogger(__name__)
 
@@ -165,8 +166,11 @@ class BlinkitClient:
                 timeout=15,
             )
         except Exception as e:
+            connectivity.report_error(str(e))
             logger.warning("Request error (page %d): %s", page_index, e)
             return None
+
+        connectivity.report_ok()
 
         if r.status_code in (401, 403):
             logger.warning("HTTP %d — session expired, marking invalid", r.status_code)

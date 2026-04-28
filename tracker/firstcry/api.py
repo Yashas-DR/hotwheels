@@ -58,6 +58,7 @@ import random
 from typing import Optional
 
 from core.rate_limiter import RateLimiter
+from core.connectivity import connectivity
 
 logger = logging.getLogger(__name__)
 
@@ -223,11 +224,15 @@ class FCClient:
                     )
                     await asyncio.sleep(backoff)
                     continue
+                connectivity.report_error(err_str)
                 logger.warning("[FirstCry] Request error (page %d): %s", page, e)
                 return None
         else:
+            connectivity.report_error(str(last_exc))
             logger.warning("[FirstCry] All retries failed (page %d): %s", page, last_exc)
             return None
+
+        connectivity.report_ok()
 
         if r.status_code in (401, 403):
             logger.warning("[FirstCry] HTTP %d — session may have expired", r.status_code)

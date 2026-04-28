@@ -56,6 +56,7 @@ _TIMEOUT_RETRIES = 2          # extra attempts after first timeout
 _TIMEOUT_BACKOFF = [10, 25]   # seconds to wait between retries
 
 from core.rate_limiter import RateLimiter
+from core.connectivity import connectivity
 
 logger = logging.getLogger(__name__)
 
@@ -168,12 +169,16 @@ class BBClient:
                     )
                     await asyncio.sleep(backoff)
                     continue
+                connectivity.report_error(err_str)
                 logger.warning("[BigBasket] Request error (page %d): %s", page, e)
                 return None
         else:
             # All retries exhausted
+            connectivity.report_error(str(last_exc))
             logger.warning("[BigBasket] All retries failed (page %d): %s", page, last_exc)
             return None
+
+        connectivity.report_ok()
 
         if r.status_code in (401, 403):
             logger.warning("[BigBasket] HTTP %d — session expired", r.status_code)

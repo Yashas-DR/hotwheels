@@ -56,6 +56,7 @@ from core.session_mgr import SessionManager
 from core.api import BlinkitClient
 from core.matcher import match_products, MatchResult
 from core.locations import load_locations, Location
+from core.connectivity import connectivity
 from alerts.telegram_bot import TelegramAlerter
 from alerts.sound_alert import SoundAlerter
 
@@ -235,6 +236,10 @@ class HotWheelsTracker:
         self.telegram = TelegramAlerter(config)
         self.sound = SoundAlerter(config)
         self.seen = SeenProducts(ttl_minutes=dedup_ttl)
+
+        # Attach alerter + sound to the connectivity monitor (module-level singleton)
+        connectivity.attach_alerter(self.telegram)
+        connectivity.attach_sound(self.sound)
 
         # ── Instamart (optional, isolated) ──────────────────────
         instamart_cfg = config.get("instamart", {})
@@ -928,6 +933,7 @@ async def async_main() -> None:
         await tracker.start(run_once=args.dry_run or args.once)
     except KeyboardInterrupt:
         console.print("\n[yellow]Interrupted by user (Ctrl+C)[/yellow]")
+        tracker.sound.stop_all()   # stop any looping audio immediately
         tracker.stop()
 
 

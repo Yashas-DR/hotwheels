@@ -53,6 +53,7 @@ import uuid
 from typing import Optional
 
 from core.rate_limiter import RateLimiter
+from core.connectivity import connectivity
 
 logger = logging.getLogger(__name__)
 
@@ -202,11 +203,15 @@ class ZeptoClient:
                     )
                     await asyncio.sleep(backoff)
                     continue
+                connectivity.report_error(str(e))
                 logger.warning("[Zepto] Request error (page %d): %s", page_number, e)
                 return None, False
         else:
+            connectivity.report_error(str(last_exc))
             logger.warning("[Zepto] All retries failed (page %d): %s", page_number, last_exc)
             return None, False
+
+        connectivity.report_ok()
 
         # Token expired — attempt refresh once
         if r.status_code in (401, 403):

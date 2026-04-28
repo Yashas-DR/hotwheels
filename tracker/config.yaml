@@ -62,6 +62,7 @@ watchlist:
   - "porsche 928s"
   - "la liebre"
   - "lotus sport elise"
+  - "El Segundo Rallye"
   # Add more model names below:
   - "porsche 911 carrera rs 3.8"
   - "McLaren Formula 1 Team 4"
@@ -74,7 +75,6 @@ watchlist:
   - "Oracle Red Bull Racing"
   - "27 Kick Sauber- F1"
   - "5 Kick JKD 89 Sauber- F1"
-  
 
 
 # ── Locations ──────────────────────────────────────────────────
@@ -118,7 +118,7 @@ matching:
 # ── Alerts ─────────────────────────────────────────────────────
 alerts:
   sound_enabled: true       # Play audio alert on match
-  sound_file: "assets/alert.wav"   # Path relative to tracker/
+  sound_file: "fein.mp3"   # Path relative to tracker/ — loops until Ctrl+C
 
 # ── Logging ────────────────────────────────────────────────────
 logging:
