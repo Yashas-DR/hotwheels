@@ -820,6 +820,8 @@ class HotWheelsTracker:
 
         if not valid:
             logger.warning("❌ Blinkit session refresh failed — session has expired.")
+            if getattr(self, "telegram", None):
+                await self.telegram.send_session_expired_alert(platform="Blinkit")
 
             logger.warning("⏸  Pausing scans. Retrying refresh every 60s...")
             while not self.session_mgr.is_valid and self._running:
