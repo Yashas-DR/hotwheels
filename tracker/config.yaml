@@ -48,10 +48,8 @@ watchlist:
   - "lb-works lamborghini huracan coupe"
   - "austin mini cooper s"
   # ── Apr 19 additions ──────────────────────────────────────
-  - "standard kart"
   - "bmw 635 csi"
   - "dino 206 gt"
-  - "ford mustang mach-e 1400"
   - "toyota gr supra"
   - "twin tags"
   - "raijin express"
@@ -91,6 +89,9 @@ locations:
   - name: "Friend House"
     lat: 13.000729
     lng: 77.668061
+  - name: "Abdul musavir"
+    lat: 13.060573
+    lng: 77.63022
 
 # ── Timing ─────────────────────────────────────────────────────
 # All intervals use random windows to avoid detectable patterns.
