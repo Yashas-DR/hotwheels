@@ -309,7 +309,7 @@ class ZeptoClient:
         if not isinstance(data, dict):
             return [], False
 
-        layout = data.get("layout", [])
+        layout = data.get("layout") or []
         all_products: list[dict] = []
         end_of_list = False
 

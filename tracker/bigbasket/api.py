@@ -233,15 +233,34 @@ class BBClient:
         if not name:
             return None
 
+        # Prepend brand name if available, since BigBasket often omits it from the title
+        brand_info = p.get("brand") or {}
+        brand_name = (brand_info.get("name") or "").strip()
+        if brand_name and brand_name.lower() not in name.lower():
+            name = f"{brand_name} {name}"
+
         avail = p.get("availability") or {}
         avail_status = avail.get("avail_status", "")
         not_for_sale = avail.get("not_for_sale", True)
 
-        if avail_status != AVAIL_IN_STOCK or not_for_sale:
+        try:
+            status_num = int(avail_status)
+        except ValueError:
+            status_num = 0
+
+        if status_num < 1 or not_for_sale:
             logger.debug(
                 "[BigBasket] OOS: '%s' status=%s not_for_sale=%s",
                 name[:50], avail_status, not_for_sale,
             )
+            return None
+
+        # Check explicit quantity if provided
+        inv_info = p.get("inv_info") or {}
+        skus = inv_info.get("skus") or []
+        total_qty = sum(int(sku.get("qty", 0)) for sku in skus)
+        if skus and total_qty < 1:
+            logger.debug("[BigBasket] OOS: '%s' total_qty=0", name[:50])
             return None
 
         # Price extraction
