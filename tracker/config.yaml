@@ -17,7 +17,7 @@ telegram:
 search:
   queries:
     - "hot wheels"
-  max_pages: 4            # Max pagination pages per query (12 products/page)
+  max_pages: 6            # Max pagination pages per query (12 products/page)
 
 # ── Watchlist ──────────────────────────────────────────────────
 # Model names to fuzzy-match against Blinkit product names.
@@ -48,7 +48,7 @@ watchlist:
   - "lb-works lamborghini huracan coupe"
   - "austin mini cooper s"
   # ── Apr 19 additions ──────────────────────────────────────
-  - "bmw 635 csi"
+  #- "bmw 635 csi"
   - "dino 206 gt"
   - "toyota gr supra"
   - "twin tags"
