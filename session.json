@@ -1,24 +1,26 @@
 {
   "cookies": {
-    "gr_1_deviceId": "8821088f-3ef1-45a0-8cd1-3adf4651cd96",
     "_gcl_au": "1.1.62701940.1775773191",
     "_fbp": "fb.1.1775773191535.36763034982508033",
+    "gr_1_deviceId": "c6fe4f99-0fbe-42b0-98e6-2f7be56c2187",
+    "city": "",
+    "gr_1_accessToken": "v2%3A%3Ad2e47bfb-14b2-4f86-a1cd-9632c4cdc3c5",
     "gr_1_lat": "12.9437737",
     "gr_1_lon": "77.7068494",
     "gr_1_locality": "3",
     "gr_1_landmark": "undefined",
-    "gr_1_accessToken": "v2%3A%3Ad2e47bfb-14b2-4f86-a1cd-9632c4cdc3c5",
-    "_ga_JSMJG966C7": "GS2.1.s1776794262$o10$g1$t1776794265$j57$l0$h0",
+    "_gid": "GA1.2.1548798487.1778816156",
+    "_ga_JSMJG966C7": "GS2.1.s1778816156$o12$g1$t1778816255$j41$l0$h0",
     "_ga": "GA1.2.609797859.1775773191",
-    "_ga_DDJ0134H6Z": "GS2.2.s1776794262$o10$g1$t1776794266$j56$l0$h0",
-    "__cf_bm": "6NA1rWJqNGgwNIPitxZgtpLIfnH2gEK9c6R1RJoIkSg-1777369178.74347-1.0.1.1-ZFXAS1pTbzKfLxt9xalMSXgejmY7U8FOthwj9N8jK.6CdBUdShzIEji4l2B6oYjZCJY.lCbJ.nf_pHFZlmPyQNToiocPn_nv3lnD4xlAqshftrc9nWLdbKSFouBfof.z"
+    "_ga_DDJ0134H6Z": "GS2.2.s1778816156$o12$g1$t1778816255$j42$l0$h0",
+    "__cf_bm": "ua7jU30zXlKHAWIoCLv9TNgAuNr2xq2kGAZrJFnrW8Y-1778880237.5058281-1.0.1.1-ouZluxLMtnl1RthxLp69BU41PK5DefMBDdMnqX6ia6G5j5XtQi9Ru0PuGtvq2BWzRF0WI145i6iZRBwyUIR06WcJgbjfqkTPZKR8xv4u._KCEfOIiwT7yRUNc5bGUK1S"
   },
   "api_headers": {
     "sec-ch-ua-platform": "\"Windows\"",
     "lat": "12.9437737",
-    "session_uuid": "dd8a9e7e-6455-4a0b-8ae6-d3b3d3fa49b9",
+    "session_uuid": "d7c2cc30-144c-4d5e-b521-b27c7d7dee08",
     "web_app_version": "1008010016",
-    "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+    "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
     "sec-ch-ua-mobile": "?0",
     "app_client": "consumer_web",
     "device_id": "3e8f844128b3387a",
@@ -28,9 +30,9 @@
     "referer": "https://blinkit.com/s/?q=hot+wheels",
     "app_version": "1010101010",
     "rn_bundle_version": "1009003012",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
     "access_token": "v2::d2e47bfb-14b2-4f86-a1cd-9632c4cdc3c5"
   },
-  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
-  "saved_at": 1777369237.440969
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+  "saved_at": 1778880833.4291618
 }

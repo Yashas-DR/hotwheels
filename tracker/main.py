@@ -208,10 +208,11 @@ class HotWheelsTracker:
     Runs the scan loop, coordinates all components, and manages state.
     """
 
-    def __init__(self, config: dict, dry_run: bool = False, only_platforms: list = None):
+    def __init__(self, config: dict, dry_run: bool = False, only_platforms: list = None, only_locations: list = None):
         self.config = config
         self.dry_run = dry_run
         self._only = {p.lower() for p in (only_platforms or [])}
+        self._only_locs = {loc.lower() for loc in (only_locations or [])}
 
         timing = config.get("timing", {})
         self.scan_min = timing.get("scan_interval_min", 35)
@@ -230,7 +231,11 @@ class HotWheelsTracker:
         self.queries: list[str] = search_cfg.get("queries", ["hot wheels"])
         self.watchlist: list[str] = config.get("watchlist", [])
 
-        self.locations: list[Location] = load_locations(config)
+        all_locations = load_locations(config)
+        if self._only_locs:
+            self.locations = [loc for loc in all_locations if loc.name.lower() in self._only_locs]
+        else:
+            self.locations = all_locations
         self.rate_limiter = RateLimiter(max_per_minute=max_rpm)
         self.session_mgr = SessionManager(config)
         self.telegram = TelegramAlerter(config)
@@ -252,7 +257,11 @@ class HotWheelsTracker:
         self.insta_watchlist: list[str] = []  # combined main + extras
         if self.instamart_enabled:
             self.insta_session = InstaSession(config)
-            self.insta_locations = instamart_cfg.get("locations", [])
+            all_insta = instamart_cfg.get("locations", [])
+            if self._only_locs:
+                self.insta_locations = [loc for loc in all_insta if loc.get("name", "").lower() in self._only_locs]
+            else:
+                self.insta_locations = all_insta
             extra = [w.lower() for w in instamart_cfg.get("additional_watchlist", [])]
             # Union: main watchlist + Instamart extras, deduplicated, order preserved
             seen_w: set[str] = set(self.watchlist)
@@ -274,9 +283,10 @@ class HotWheelsTracker:
             for loc_cfg in bb_cfg.get("locations", []):
                 sf = loc_cfg.get("session_file", "bigbasket_session.json")
                 name = loc_cfg.get("name", sf)
-                self.bb_locations.append((name, BBSession(config, session_file_override=sf)))
+                if not self._only_locs or name.lower() in self._only_locs:
+                    self.bb_locations.append((name, BBSession(config, session_file_override=sf)))
             # Fallback: if no locations list, use legacy session_file key
-            if not self.bb_locations:
+            if not self.bb_locations and not self._only_locs:
                 sf = bb_cfg.get("session_file", "bigbasket_session.json")
                 self.bb_locations.append(("BigBasket", BBSession(config, session_file_override=sf)))
 
@@ -299,7 +309,8 @@ class HotWheelsTracker:
                 name = loc_cfg.get("name", "FirstCry")
                 pincode = str(loc_cfg.get("pincode", "")).strip()
                 if pincode:
-                    self.fc_locations.append((name, pincode))
+                    if not self._only_locs or name.lower() in self._only_locs:
+                        self.fc_locations.append((name, pincode))
             if not self.fc_locations:
                 logger.warning("FirstCry enabled but no locations configured — add pincodes to config.yaml")
                 self.firstcry_enabled = False
@@ -322,7 +333,8 @@ class HotWheelsTracker:
             for loc_cfg in z_cfg.get("locations", []):
                 name = loc_cfg.get("name", "").strip()
                 if name:
-                    self.zepto_locations.append(name)
+                    if not self._only_locs or name.lower() in self._only_locs:
+                        self.zepto_locations.append(name)
             if not self.zepto_locations:
                 logger.warning("Zepto enabled but no locations configured in config.yaml")
                 self.zepto_enabled = False
@@ -908,6 +920,11 @@ Examples:
         metavar="PLATFORM",
         help="Only scan these platforms, e.g.: --only instamart  or  --only blinkit zepto"
     )
+    parser.add_argument(
+        "--location", nargs="+",
+        metavar="LOC_NAME",
+        help="Only scan these specific locations (by name), e.g.: --location abdulee Soundary"
+    )
     return parser.parse_args()
 
 
@@ -929,7 +946,12 @@ async def async_main() -> None:
     config = load_config(config_path)
     setup_logging(config)
 
-    tracker = HotWheelsTracker(config=config, dry_run=args.dry_run, only_platforms=args.only)
+    tracker = HotWheelsTracker(
+        config=config,
+        dry_run=args.dry_run,
+        only_platforms=args.only,
+        only_locations=args.location
+    )
 
     try:
         await tracker.start(run_once=args.dry_run or args.once)

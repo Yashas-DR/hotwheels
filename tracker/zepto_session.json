@@ -14,14 +14,14 @@
     "longitude": "77.66804398968816",
     "prev_store_id": "70587079-1b46-4f4e-85fa-e84acebcd919",
     "zeptoPassDetails": "false",
-    "session_id": "8e7b96ba-36cd-49cc-84cc-449ef0e270a8",
-    "session_count": "29",
-    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJ2ZXJzaW9uIjoxLCJzdWIiOiIyZTQzNjFhOS1mMDk4LTQ2MTUtYmYyYy02MzRiNmM0NTMzMmIiLCJpYXQiOjE3NzY4MDE4MDIsImV4cCI6MTc3NjgwNTQwMn0.TQHbv4pyw0xyL3-Abv0yEDuyCdNuv7y44KJgm_X_HaLOU0yppDKUP4DucPjZl5787OXLNGnFFr91qIUoBxrkYw",
-    "refreshToken": "578ec21b-5d20-46d3-a223-e6156a873b94",
-    "serviceability": "%7B%22primaryStore%22%3A%7B%22serviceable%22%3Atrue%2C%22storeId%22%3A%2270587079-1b46-4f4e-85fa-e84acebcd919%22%2C%22storeConstruct%22%3A%22PRIMARY_STORE%22%2C%22etaInMinutes%22%3A6%2C%22isDeliverable%22%3Atrue%2C%22isNightlyStore%22%3Afalse%7D%2C%22secondaryStore%22%3A%7B%22serviceable%22%3Atrue%2C%22storeId%22%3A%226b1d82f8-b2ea-4e43-ae70-6f6bca1ec77a%22%2C%22storeConstruct%22%3A%22SECONDARY_STORE%22%2C%22etaInMinutes%22%3A%22%22%2C%22isDeliverable%22%3Afalse%2C%22isNightlyStore%22%3Afalse%7D%2C%22etaInformation%22%3A%7B%22secondaryText%22%3A%226%20minutes%22%7D%2C%22storeDetailedInfo%22%3A%7B%22city%22%3A%22Bengaluru%22%2C%22name%22%3A%22BLR-Dooravani%20Nagar%22%7D%2C%22timeSaved%22%3A1776801802574%7D",
-    "csrfSecret": "tssWkoxC1DM",
-    "XSRF-TOKEN": "NZc8u-z3n6bo6Iu2Um2sA%3Ax2vmaSylk7fYb9uTkeY9TipFURE.JyjeHCXZfflU4C8nfGoUEyXNtMIweyqCFBf1aXsn74s",
-    "_ga_52LKG2B3L1": "GS2.1.s1776801805$o26$g0$t1776801805$j60$l0$h2140886070"
+    "session_id": "6deef065-5ec1-4b16-bd4c-35c870359db9",
+    "session_count": "96",
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJ2ZXJzaW9uIjoxLCJzdWIiOiIyZTQzNjFhOS1mMDk4LTQ2MTUtYmYyYy02MzRiNmM0NTMzMmIiLCJpYXQiOjE3Nzg4Nzc3NDQsImV4cCI6MTc3ODg4MTM0NH0.hbTAbQjzIE0Isn-g_w6P1ODWVREEuK-DuSjyuaB_THvkZbS6vQCafzKvePhlwNTPOWgcT6EF2JbaserluPW4ig",
+    "refreshToken": "dcf153c9-e426-4029-8d13-9d18d4bf2c29",
+    "serviceability": "%7B%22primaryStore%22%3A%7B%22serviceable%22%3Atrue%2C%22storeId%22%3A%22e65fe048-7b72-4698-8aac-03359d3171a3%22%2C%22storeConstruct%22%3A%22PRIMARY_STORE%22%2C%22etaInMinutes%22%3A%22%22%2C%22isDeliverable%22%3Afalse%2C%22isNightlyStore%22%3Atrue%7D%2C%22secondaryStore%22%3A%7B%22serviceable%22%3Atrue%2C%22storeId%22%3A%226b1d82f8-b2ea-4e43-ae70-6f6bca1ec77a%22%2C%22storeConstruct%22%3A%22SECONDARY_STORE%22%2C%22etaInMinutes%22%3A%22%22%2C%22isDeliverable%22%3Afalse%2C%22isNightlyStore%22%3Afalse%7D%2C%22etaInformation%22%3A%7B%22etaSecondaryInfo%22%3A%7B%22backgroundColor%22%3A%22%23FFB69E%22%2C%22collapsedImageBackgroundColor%22%3A%22%23FFB69E%22%2C%22collapsedImageColor%22%3A%22%239D570C%22%2C%22image%22%3A%7B%22height%22%3A%2216%22%2C%22id%22%3A%2238749023-9015-4d83-888c-18360d575c25%22%2C%22mediaType%22%3A%22IMAGE%22%2C%22name%22%3A%22store_closed_icon.png%22%2C%22path%22%3A%22app%2Fimages%2Fsurge-new.png%22%2C%22width%22%3A%2216%22%7D%2C%22imageBackgroundColor%22%3A%22%23FFFFFF%22%2C%22imageColor%22%3A%22%23B9664B%22%2C%22primaryMessage%22%3A%22See%20you%20bright%20and%20early%20at%206%20AM%22%2C%22secondaryMessage%22%3A%22Opens%20at%206%20AM%22%2C%22textColor%22%3A%22%23000000%22%7D%2C%22primaryText%22%3A%22Store%20is%20Closed%22%7D%2C%22storeDetailedInfo%22%3A%7B%22city%22%3A%22Bengaluru%22%2C%22name%22%3A%22BLR-Kasturinagar%22%7D%2C%22timeSaved%22%3A1778877744920%7D",
+    "_ga_52LKG2B3L1": "GS2.1.s1778877748$o91$g0$t1778877748$j60$l0$h1790808954",
+    "csrfSecret": "G3Xn9BWv4wQ",
+    "XSRF-TOKEN": "pflkjUFvFgyX95EYbGt2b%3A7vnkqrnoLiFPezHVHFGoJRrvl_Y.x1DIAD%2FWJWJk%2FHP6HWdiIvJ9LvgP41jUtSxkQ%2B8nF7Q"
   },
   "session_headers": {},
   "locations": {
