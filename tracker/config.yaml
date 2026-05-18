@@ -32,7 +32,7 @@ watchlist:
   - "ferrari 365 gtb4 competizione"
   #- "ford rs200"
   - "audi 90 quattro"
-  - "porsche 911 carrera t"
+  #- "porsche 911 carrera t"
   - "ferrari f40 competizione"
   #- "ford mustang shelby gt500"
   - "lamborghini huracan sterrato"
@@ -44,25 +44,25 @@ watchlist:
   - "optimus prime"
   - "ferrari sf90 stradale"
   # ── New additions ─────────────────────────────────────────
-  - "ferrari 12cilinderi"
+  - "ferrari 12 cilinderi"
   - "lb-works lamborghini huracan coupe"
   - "austin mini cooper s"
   # ── Apr 19 additions ──────────────────────────────────────
   #- "bmw 635 csi"
   - "dino 206 gt"
-  - "toyota gr supra"
-  - "twin tags"
-  - "raijin express"
-  - "total disposal"
+  #- "toyota gr supra"
+  #- "twin tags"
+  #- "raijin express"
+  #- "total disposal"
   - "audi rs6 avant"
-  - "mercedes-benz cla"
+  #- "mercedes-benz cla"
   - "kick sauber f1 team"
-  - "porsche 928s"
-  - "la liebre"
-  - "lotus sport elise"
+  #- "porsche 928s"
+  #- "la liebre"
+  #- "lotus sport elise"
   - "ferrari"
   # Add more model names below:
-  - "porsche 911 carrera rs 3.8"
+  #- "porsche 911 carrera rs 3.8"
   - "McLaren Formula 1 Team 4"
   - "McLaren Formula 1 Team"
   - "2025 McLaren Formula 1 Team 81"
@@ -81,13 +81,13 @@ watchlist:
 # Find coords: right-click your address on Google Maps → "What's here?"
 # Keep <= 5 locations for safe operation.
 locations:
-  - name: "Novel Office"
+  - name: "Novel_Office"
     lat: 12.956695
     lng: 77.7000965
   - name: "Home"
     lat: 12.9434933
     lng: 77.7070333
-  - name: "Friend House"
+  - name: "Friend_House"
     lat: 13.000729
     lng: 77.668061
   - name: "Abdul musavir"
